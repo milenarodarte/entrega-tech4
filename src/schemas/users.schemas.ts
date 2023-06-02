@@ -1,4 +1,4 @@
-import { z } from "Zod";
+import { z } from "zod";
 
 const createClientSchema = z.object({
   fullName: z.string().min(7).max(100),
@@ -14,4 +14,14 @@ const UpdateClientSchema = z.object({
   registerDate: z.date().optional(),
 });
 
-export { UpdateClientSchema, createClientSchema };
+const multipleClientsSchemaResponse = createClientSchema.array();
+
+const clientSchemaResponse = createClientSchema.extend({
+  id: z.number().int(),
+});
+export {
+  UpdateClientSchema,
+  createClientSchema,
+  multipleClientsSchemaResponse,
+  clientSchemaResponse,
+};

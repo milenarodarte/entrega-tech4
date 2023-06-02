@@ -1,20 +1,21 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import Contact from "./contacts.entites";
+import Contact from "./contacts.entities";
+
 @Entity("clients")
-class Client {
+class ClientApp {
   @PrimaryGeneratedColumn("uuid")
-  id: string;
+  id!: string;
 
-  @Column()
-  fullName: string;
+  @Column("text", { nullable: false })
+  fullName!: string;
 
-  @Column()
-  phone: string;
+  @Column("text", { nullable: false })
+  phone!: string;
 
-  @Column()
-  registrationDate: Date;
+  @Column("date", { nullable: false })
+  registrationDate!: Date;
 
   @OneToMany(() => Contact, (contact) => contact.client)
-  contact: Contact[];
+  contacts?: Contact[];
 }
-export default Client;
+export default ClientApp;
