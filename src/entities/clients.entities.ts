@@ -1,5 +1,6 @@
+import "reflect-metadata";
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import Contact from "./contacts.entities";
+import { Contact } from "./contacts.entities";
 
 @Entity("clients")
 class ClientApp {
@@ -18,4 +19,4 @@ class ClientApp {
   @OneToMany(() => Contact, (contact) => contact.client)
   contacts?: Contact[];
 }
-export default ClientApp;
+export { ClientApp };

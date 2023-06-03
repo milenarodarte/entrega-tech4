@@ -1,11 +1,11 @@
 import "reflect-metadata";
 import "express-async-errors";
 import express from "express";
-import { usersRoutes } from "./routes/clients.routes";
+import { clientsRoutes } from "./routes/clients.routes";
+import { handleErrors } from "../errors";
 
 const app = express();
 app.use(express.json());
-app.use("/users", usersRoutes);
-
-app.get("/users", (req, res) => res.json("hello world"));
+app.use("/clients", clientsRoutes);
+app.use(handleErrors);
 export default app;

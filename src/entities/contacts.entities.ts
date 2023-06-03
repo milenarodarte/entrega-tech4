@@ -1,6 +1,5 @@
-import { text } from "express";
-import ClientApp from "./clients.entities";
-import { string } from "pg-format";
+import "reflect-metadata";
+import { ClientApp } from "./clients.entities";
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 
 @Entity("contacts")
@@ -21,4 +20,4 @@ class Contact {
   client!: ClientApp;
 }
 
-export default Contact;
+export { Contact };

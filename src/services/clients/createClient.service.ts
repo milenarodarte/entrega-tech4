@@ -1,12 +1,14 @@
+import "reflect-metadata";
 import { Repository } from "typeorm";
 import {
   IClientResponse,
   IClientRequest,
 } from "../../interfaces/clients.interface";
 import { AppDataSource } from "../../data-source";
-import ClientApp from "../../entities/clients.entities";
+import { ClientApp } from "../../entities/clients.entities";
 import { AppError } from "../../../errors";
 import { clientSchemaResponse } from "../../schemas/users.schemas";
+
 const createClientServices = async (
   clientData: IClientRequest
 ): Promise<IClientResponse> => {
