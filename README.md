@@ -16,9 +16,17 @@
 #### ➡️ http://localhost:3000/clients
 ### listar clientes: 
 #### ➡️ http://localhost:3000/clients
+### modificar clientes:
+#### ➡️ http://localhost:3000/clients/id
+### deletar clientes: 
+#### ➡️ http://localhost:3000/clients/id
 ### cadastrar contatos:
 #### ➡️ http://localhost:3000/contacts
 ### listar contatos:
 #### ➡️ http://localhost:3000/contacts
+### modificar contatos:
+#### ➡️ http://localhost:3000/contacts/id
+### deletar contatos: 
+#### ➡️ http://localhost:3000/contacts/id
 
 
