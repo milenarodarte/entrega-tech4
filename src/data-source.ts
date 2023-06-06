@@ -1,20 +1,10 @@
 import { DataSource, DataSourceOptions } from "typeorm";
 import path from "path";
 import "dotenv/config";
-
+import { Contact } from "./entities/contacts.entities";
+import { ClientApp } from "./entities/clients.entities";
+import { InitialMigration1685974449531 } from "./migrations/1685974449531-InitialMigration";
 const DataSourceConfig = (): DataSourceOptions => {
-  const entitiesPath = path.join(__dirname, "entities/**.{js,ts}");
-  const migrationsPath = path.join(__dirname, "migrations/**.{js,ts}");
-
-  if (process.env.NODE_ENV === "test") {
-    return {
-      type: "sqlite",
-      database: ":memory:",
-      synchronize: true,
-      entities: [entitiesPath],
-    };
-  }
-
   if (!process.env.DATABASE_URL)
     throw new Error("Env var DATABASE_URL does not exists");
 
@@ -23,8 +13,8 @@ const DataSourceConfig = (): DataSourceOptions => {
     url: process.env.DATABASE_URL,
     synchronize: false,
     logging: true,
-    entities: [entitiesPath],
-    migrations: [migrationsPath],
+    entities: [Contact, ClientApp],
+    migrations: [InitialMigration1685974449531],
   };
 };
 

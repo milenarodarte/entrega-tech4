@@ -1,22 +1,28 @@
 import "reflect-metadata";
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  CreateDateColumn,
+} from "typeorm";
 import { Contact } from "./contacts.entities";
 
 @Entity("clients")
 class ClientApp {
   @PrimaryGeneratedColumn("uuid")
-  id!: string;
+  id: string;
 
   @Column("text", { nullable: false })
-  fullName!: string;
+  fullName: string;
 
   @Column("text", { nullable: false })
-  phone!: string;
+  phone: string;
 
-  @Column("date", { nullable: false })
-  registrationDate!: Date;
+  @CreateDateColumn()
+  registrationDate: Date;
 
   @OneToMany(() => Contact, (contact) => contact.client)
-  contacts?: Contact[];
+  contacts: Contact[];
 }
 export { ClientApp };
