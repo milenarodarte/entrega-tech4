@@ -11,7 +11,7 @@ import {
 @Entity("contacts")
 class Contact {
   @PrimaryGeneratedColumn("uuid")
-  id: string;
+  id: number;
 
   @Column("text", { nullable: false })
   fullName: string;

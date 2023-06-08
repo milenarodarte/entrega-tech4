@@ -7,7 +7,7 @@ import {
 import { AppDataSource } from "../../data-source";
 import { ClientApp } from "../../entities/clients.entities";
 import { AppError } from "../../../errors";
-import { clientSchemaResponse } from "../../schemas/users.schemas";
+import { clientSchemaResponse } from "../../schemas/clients.schemas";
 
 const createClientServices = async (
   clientData: IClientRequest

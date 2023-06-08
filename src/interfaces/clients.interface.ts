@@ -5,7 +5,7 @@ import {
   UpdateClientSchema,
   multipleClientsSchemaResponse,
   clientSchemaResponse,
-} from "../schemas/users.schemas";
+} from "../schemas/clients.schemas";
 
 type IClientRequest = z.infer<typeof createClientSchema>;
 type IUpdateRequest = z.infer<typeof UpdateClientSchema>;
