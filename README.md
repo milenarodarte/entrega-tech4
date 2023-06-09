@@ -43,3 +43,9 @@
 ### deletar contatos:
 
 #### ➡️ http://localhost:3000/contacts/:id
+
+### CADASTRO DE CLIENTES:
+##### { fullName: , phone: , email: }
+### CADASTRO CONTATOS: 
+##### { fullName: string , phone: string, email: string , clientAttached: number id do client }
+### DELETAR E MODIFICAR: id da URL é o referente ao do contato/cliente que deseja moficar/deletar 
