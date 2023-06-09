@@ -22,11 +22,11 @@
 
 ### modificar clientes:
 
-#### ➡️ http://localhost:3000/clients/id
+#### ➡️ http://localhost:3000/clients/:id
 
 ### deletar clientes:
 
-#### ➡️ http://localhost:3000/clients/id
+#### ➡️ http://localhost:3000/clients/:id
 
 ### cadastrar contatos:
 
@@ -38,8 +38,8 @@
 
 ### modificar contatos:
 
-#### ➡️ http://localhost:3000/contacts/id
+#### ➡️ http://localhost:3000/contacts/:id
 
 ### deletar contatos:
 
-#### ➡️ http://localhost:3000/contacts/id
+#### ➡️ http://localhost:3000/contacts/:id
