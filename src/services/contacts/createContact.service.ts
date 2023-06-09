@@ -5,7 +5,7 @@ import {
   IContactRequest,
 } from "../../interfaces/contacts.interface";
 import { AppDataSource } from "../../data-source";
-import { AppError } from "../../error";
+import { AppError } from "../../../errors";
 import { Contact } from "../../entities/contacts.entities";
 import { ClientApp } from "../../entities/clients.entities";
 import { contactSchemaResponse } from "../../schemas/contacts.schemas";
@@ -36,11 +36,17 @@ const createContactServices = async (
     );
   }
 
-  const contact = { ...contactData, clientAttached: client };
+  const contact = {
+    ...contactData,
+    clientAttached: client,
+    registrationDate: new Date(),
+    client: client,
+  };
 
-  await contactsRepository.save(contact);
-
-  const newcontact = contactSchemaResponse.parse(contact);
+  const contactCreate = contactsRepository.create(contact);
+  console.log(contactCreate);
+  await contactsRepository.save(contactCreate);
+  const newcontact = contactSchemaResponse.parse(contactCreate);
 
   return newcontact;
 };

@@ -19,10 +19,11 @@ const createClientServices = async (
   });
 
   if (findFullName !== null) {
-    throw new AppError("Category already exists", 409);
+    throw new AppError("fullName already exists", 409);
   }
+  const clientFull = { ...clientData, registrationDate: new Date() };
 
-  const client = clientsRepository.create(clientData);
+  const client = clientsRepository.create(clientFull);
 
   await clientsRepository.save(client);
 

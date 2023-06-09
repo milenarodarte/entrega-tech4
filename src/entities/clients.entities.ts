@@ -10,7 +10,7 @@ import { Contact } from "./contacts.entities";
 
 @Entity("clients")
 class ClientApp {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column("text", { nullable: false })
@@ -18,6 +18,9 @@ class ClientApp {
 
   @Column("text", { nullable: false })
   phone: string;
+
+  @Column("text", { nullable: false })
+  email: string;
 
   @CreateDateColumn()
   registrationDate: Date;

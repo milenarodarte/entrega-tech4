@@ -10,7 +10,7 @@ import {
 
 @Entity("contacts")
 class Contact {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column("text", { nullable: false })
@@ -19,10 +19,13 @@ class Contact {
   @Column("text", { nullable: false })
   phone: string;
 
+  @Column("text", { nullable: false })
+  email: string;
+
   @CreateDateColumn()
   registrationDate: Date;
 
-  @ManyToOne(() => ClientApp)
+  @ManyToOne(() => ClientApp, { cascade: true })
   client: ClientApp;
 }
 

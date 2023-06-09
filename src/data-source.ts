@@ -3,7 +3,7 @@ import path from "path";
 import "dotenv/config";
 import { Contact } from "./entities/contacts.entities";
 import { ClientApp } from "./entities/clients.entities";
-import { InitialMigration1685974449531 } from "./migrations/1685974449531-InitialMigration";
+import { InitialMigration1686270546577 } from "./migrations/1686270546577-InitialMigration";
 const DataSourceConfig = (): DataSourceOptions => {
   if (!process.env.DATABASE_URL)
     throw new Error("Env var DATABASE_URL does not exists");
@@ -14,7 +14,7 @@ const DataSourceConfig = (): DataSourceOptions => {
     synchronize: false,
     logging: true,
     entities: [Contact, ClientApp],
-    migrations: [InitialMigration1685974449531],
+    migrations: [InitialMigration1686270546577],
   };
 };
 

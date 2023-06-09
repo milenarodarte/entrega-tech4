@@ -5,30 +5,37 @@ import {
   IUpdateRequest,
   IClientResponse,
 } from "../../interfaces/clients.interface";
-import { clientSchemaResponse } from "../../schemas/users.schemas";
+import { clientSchemaResponse } from "../../schemas/clients.schemas";
 import { AppError } from "../../error";
 
 const updateClientService = async (
   id: number,
-  clientData: IUpdateRequest
+  clientData: Partial<IUpdateRequest>
 ): Promise<IClientResponse> => {
   const clientDataKeys = Object.keys(clientData);
   if (clientDataKeys.length === 0) {
     throw new AppError(
-      "one of those keys must be sent: fullName, email, phone]",
+      "one of those keys must be sent: fullName, email, phone",
       400
     );
   }
   const clientRepository: Repository<ClientApp> =
     AppDataSource.getRepository(ClientApp);
+
   const oldClientData = await clientRepository.findOneBy({
     id: id,
   });
+
+  if (!oldClientData) {
+    throw new AppError("client id not found", 404);
+  }
   const client = clientRepository.create({
     ...oldClientData,
     ...clientData,
   });
-  await clientRepository.save(clientData);
-  const updatedClient = clientSchemaResponse.parse(client);
-  return updatedClient;
+
+  const savedClient = await clientRepository.save(client);
+  const updatedClientResponse = clientSchemaResponse.parse(savedClient);
+  return updatedClientResponse;
 };
+export default updateClientService;
